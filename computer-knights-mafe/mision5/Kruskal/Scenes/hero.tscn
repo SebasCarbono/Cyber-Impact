@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://crdiuqioehs6d"]
+
+[ext_resource type="Script" uid="uid://dqhtqv2jvt30e" path="res://mision5/Kruskal/Script/byte.gd" id="1_oda6x"]
+[ext_resource type="Texture2D" uid="uid://fchdny5vh068" path="res://mision5/Kruskal/images/ChatGPT Image Nov 12, 2025, 08_09_21 PM.png" id="2_crpqn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b46g1"]
+size = Vector2(43, 77)
+
+[node name="Hero" type="CharacterBody2D" groups=["heroe"]]
+script = ExtResource("1_oda6x")
+peso = 1
+
+[node name="Hero" type="Sprite2D" parent="."]
+position = Vector2(0, 1)
+scale = Vector2(0.09301757, 0.093994185)
+texture = ExtResource("2_crpqn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2.5, -2.5)
+shape = SubResource("RectangleShape2D_b46g1")

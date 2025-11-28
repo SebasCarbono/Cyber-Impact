@@ -1,0 +1,23 @@
+[gd_scene load_steps=6 format=3 uid="uid://bwqolo43kgnt6"]
+
+[ext_resource type="Script" uid="uid://cg04bwlab3prq" path="res://codigos/esfera.gd" id="1"]
+[ext_resource type="Material" uid="uid://6tto52vds7c4" path="res://escenas/laberintosr.tres" id="2_tpxwd"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_tpxwd"]
+rough = true
+
+[sub_resource type="SphereMesh" id="SphereMesh_d7gn6"]
+material = ExtResource("2_tpxwd")
+
+[sub_resource type="SphereShape3D" id="2"]
+
+[node name="esfera" type="RigidBody3D" groups=["esfera"]]
+physics_material_override = SubResource("PhysicsMaterial_tpxwd")
+gravity_scale = 2.0
+script = ExtResource("1")
+
+[node name="esfera" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_d7gn6")
+
+[node name="shape" type="CollisionShape3D" parent="."]
+shape = SubResource("2")

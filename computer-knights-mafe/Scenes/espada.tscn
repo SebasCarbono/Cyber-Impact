@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://d36ms8q5weo6a"]
+
+[ext_resource type="Texture2D" uid="uid://cg275khv0mk44" path="res://Images/espada.png" id="1_hkoa1"]
+[ext_resource type="Script" uid="uid://bml2j3wyoi8iy" path="res://scripts/Espada.gd" id="2_1mny4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1mny4"]
+size = Vector2(16, 115)
+
+[node name="Espada" type="Area2D" groups=["espada"]]
+position = Vector2(4, 180)
+script = ExtResource("2_1mny4")
+
+[node name="Espada" type="Sprite2D" parent="."]
+position = Vector2(475.951, 452.513)
+rotation = -0.791961
+scale = Vector2(0.358642, 0.356841)
+texture = ExtResource("1_hkoa1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(483, 430.5)
+shape = SubResource("RectangleShape2D_1mny4")

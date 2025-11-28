@@ -1,0 +1,48 @@
+[gd_scene load_steps=4 format=3 uid="uid://b187ipy5rh3l4"]
+
+[ext_resource type="Script" uid="uid://brx6ud6byy4h8" path="res://findemor-youtube-aprender-godot-1.0.2/ask_3.gd" id="1_2ta2j"]
+[ext_resource type="Texture2D" uid="uid://blaun2qg8ra7" path="res://findemor-youtube-aprender-godot-1.0.2/WhatsApp Image 2025-10-15 at 10.20.18 AM.jpeg" id="1_l3580"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_56la6"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[node name="Ask3" type="Node2D"]
+script = ExtResource("1_2ta2j")
+
+[node name="3" type="Sprite2D" parent="."]
+position = Vector2(584, 336)
+scale = Vector2(0.73375, 0.604405)
+texture = ExtResource("1_l3580")
+
+[node name="A" type="Button" parent="."]
+offset_left = 164.0
+offset_top = 215.0
+offset_right = 1011.0
+offset_bottom = 312.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_56la6")
+
+[node name="B" type="Button" parent="."]
+offset_left = 166.0
+offset_top = 326.0
+offset_right = 1032.0
+offset_bottom = 429.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_56la6")
+
+[node name="C" type="Button" parent="."]
+offset_left = 164.0
+offset_top = 440.0
+offset_right = 1012.0
+offset_bottom = 508.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_56la6")
+
+[node name="D" type="Button" parent="."]
+offset_left = 166.0
+offset_top = 526.0
+offset_right = 1033.0
+offset_bottom = 600.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_56la6")
+
+[connection signal="pressed" from="A" to="." method="_on_a_pressed"]
+[connection signal="pressed" from="B" to="." method="_on_b_pressed"]
+[connection signal="pressed" from="C" to="." method="_on_c_pressed"]
+[connection signal="pressed" from="D" to="." method="_on_d_pressed"]

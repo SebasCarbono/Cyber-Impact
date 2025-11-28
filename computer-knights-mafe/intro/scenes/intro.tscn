@@ -1,0 +1,41 @@
+[gd_scene load_steps=7 format=3 uid="uid://fo3f546v6mbl"]
+
+[ext_resource type="Script" uid="uid://dk1mwjcrqtvn0" path="res://intro/scripts/intro.gd" id="1_bsylu"]
+[ext_resource type="PackedScene" uid="uid://cy5ljjr7flfgx" path="res://intro/scenes/nemi.tscn" id="2_bsylu"]
+[ext_resource type="Texture2D" uid="uid://bscyv2y4no5r7" path="res://intro/assets/Fondo2.jpg" id="2_fjmnr"]
+[ext_resource type="VideoStream" uid="uid://cvcpo785mtjtx" path="res://Videos/WhatsApp-Video-2025-11-26-at-3.52.55-PM.ogv" id="4_x45g3"]
+[ext_resource type="AudioStream" uid="uid://bddc8br7q8u1n" path="res://audios/wrong-place-129242.mp3" id="5_8ip0s"]
+[ext_resource type="AudioStream" uid="uid://dw7hd3k1s7i4d" path="res://audios/the-suspenseful-braam-334309.mp3" id="6_fjmnr"]
+
+[node name="intro" type="Node2D"]
+script = ExtResource("1_bsylu")
+
+[node name="Fondo2" type="Sprite2D" parent="."]
+position = Vector2(527, 1908)
+texture = ExtResource("2_fjmnr")
+
+[node name="Nemi" parent="." instance=ExtResource("2_bsylu")]
+position = Vector2(568, 255)
+scale = Vector2(0.2, 0.2)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+process_mode = 3
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="CanvasLayer"]
+offset_left = -104.0
+offset_top = -45.0
+offset_right = 1272.0
+offset_bottom = 723.0
+stream = ExtResource("4_x45g3")
+metadata/_edit_use_anchors_ = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_8ip0s")
+
+[node name="Timer15" type="Timer" parent="."]
+process_mode = 3
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_fjmnr")
+
+[connection signal="timeout" from="Timer15" to="." method="_on_timer_15_timeout"]

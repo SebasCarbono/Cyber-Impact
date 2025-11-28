@@ -1,0 +1,28 @@
+[gd_scene load_steps=2 format=3 uid="uid://cgp670x5g74oj"]
+
+[ext_resource type="Script" uid="uid://dt2cs02kxg131" path="res://control.gd" id="1_0fbet"]
+
+[node name="raíz" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0fbet")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 1193.0
+offset_bottom = 707.0
+
+[node name="Terminal" type="RichTextLabel" parent="Panel"]
+layout_mode = 0
+offset_left = 16.0
+offset_right = 1200.0
+offset_bottom = 602.0
+
+[node name="HiddenLineEdit" type="LineEdit" parent="."]
+layout_mode = 0
+offset_right = 1192.0
+offset_bottom = 696.0

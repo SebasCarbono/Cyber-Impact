@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://cx5n7pphswdgg"]
+
+[ext_resource type="Script" uid="uid://dqhtqv2jvt30e" path="res://mision5/Kruskal/Script/byte.gd" id="1_4o0h6"]
+[ext_resource type="Texture2D" uid="uid://d4jqamt0a2vd8" path="res://mision5/Kruskal/images/byte.png" id="1_q8ixf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4o0h6"]
+size = Vector2(38, 78)
+
+[node name="Byte" type="CharacterBody2D" groups=["heroe"]]
+script = ExtResource("1_4o0h6")
+peso = 2
+
+[node name="Byte" type="Sprite2D" parent="."]
+position = Vector2(0, 1)
+scale = Vector2(0.09301757, 0.093994185)
+texture = ExtResource("1_q8ixf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 2)
+shape = SubResource("RectangleShape2D_4o0h6")

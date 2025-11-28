@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://mthhxq3vium5"]
+
+[ext_resource type="Script" uid="uid://bgm0ou6viam1a" path="res://mision5/Kruskal/Script/corrupto.gd" id="1_4wion"]
+[ext_resource type="Texture2D" uid="uid://b130prpo7pl2x" path="res://mision5/Assets/virus.webp" id="2_2ttvp"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_i6f0q"]
+radius = 23.584953
+
+[node name="Corrupto" type="CharacterBody2D" groups=["BAD"]]
+position = Vector2(-1, 0)
+script = ExtResource("1_4wion")
+
+[node name="Corrupto" type="Sprite2D" parent="."]
+position = Vector2(-1, 1.1875)
+scale = Vector2(0.14306645, 0.13598631)
+texture = ExtResource("2_2ttvp")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-2, 2)
+shape = SubResource("CircleShape2D_i6f0q")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -40.0
+offset_top = -46.0
+offset_bottom = -23.0
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

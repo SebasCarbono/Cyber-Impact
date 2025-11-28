@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://byo8laaveieuu"]
+
+[ext_resource type="Script" uid="uid://dsrc84coje4hu" path="res://scripts/nodo_seguro.gd" id="1_2nb76"]
+[ext_resource type="Texture2D" uid="uid://dmsl5583212dr" path="res://Images/WhatsApp Image 2025-10-15 at 10.46.19 AM.jpeg" id="1_dgn3q"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_2nb76")
+
+[node name="WhatsAppImage20251015At10_46_19Am" type="Sprite2D" parent="."]
+position = Vector2(605, 327)
+scale = Vector2(0.8024089, 0.6738281)
+texture = ExtResource("1_dgn3q")
+
+[node name="Button" type="Button" parent="."]
+offset_left = 216.0
+offset_top = 574.0
+offset_right = 523.0
+offset_bottom = 630.0
+
+[node name="Button2" type="Button" parent="."]
+offset_left = 635.0
+offset_top = 576.0
+offset_right = 915.0
+offset_bottom = 632.0
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]

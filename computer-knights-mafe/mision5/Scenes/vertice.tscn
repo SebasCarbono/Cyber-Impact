@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://df8kap67ewtuc"]
+
+[ext_resource type="Script" uid="uid://cgyhcaok68pn7" path="res://mision5/Scenes/vertice.gd" id="1_26slt"]
+[ext_resource type="Texture2D" uid="uid://prfexcaoeiqh" path="res://mision5/DijkstraMinigame/Images/red.png" id="1_si5pv"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_si5pv"]
+radius = 15.0
+
+[node name="vertice" type="Area2D"]
+script = ExtResource("1_26slt")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.056875005, 0.056666672)
+texture = ExtResource("1_si5pv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_si5pv")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

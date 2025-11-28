@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://bt2kyera7k2a4"]
+
+[ext_resource type="Script" uid="uid://cydui3j2vpft5" path="res://scripts/ad_3.gd" id="1_mepj1"]
+[ext_resource type="Texture2D" uid="uid://cbvir3e5tq0ov" path="res://Images/ad3.png" id="2_mepj1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fql5e"]
+size = Vector2(163, 177)
+
+[node name="ad3" type="Node2D"]
+script = ExtResource("1_mepj1")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(173.75, -118)
+scale = Vector2(0.31543, 0.302734)
+texture = ExtResource("2_mepj1")
+
+[node name="ads" type="Area2D" parent="." groups=["ads"]]
+
+[node name="ad3" type="CollisionShape2D" parent="ads"]
+position = Vector2(151.5, -126.5)
+shape = SubResource("RectangleShape2D_fql5e")
+
+[connection signal="area_entered" from="ads" to="." method="_on_ads_area_entered"]

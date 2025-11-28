@@ -1,0 +1,113 @@
+[gd_scene load_steps=13 format=3 uid="uid://cowy6kj2t6wbl"]
+
+[ext_resource type="Script" uid="uid://byu3823rku1km" path="res://scripts/Computer.gd" id="1_x8vny"]
+[ext_resource type="VideoStream" uid="uid://dac21b4m1876g" path="res://Videos/esferaCaballero.ogv" id="2_hcr37"]
+[ext_resource type="PackedScene" uid="uid://cx458qm61dpee" path="res://Scenes/knight.tscn" id="2_jfdb7"]
+[ext_resource type="Texture2D" uid="uid://dl0ynm8s7bc5l" path="res://Images/ChatGPT Image Oct 15, 2025, 12_02_46 AM.png" id="3_tf1c6"]
+[ext_resource type="Texture2D" uid="uid://bq7rdag2831c6" path="res://Images/google.png" id="4_brotk"]
+[ext_resource type="Texture2D" uid="uid://c2ioperngs7up" path="res://Images/gmail.png" id="4_x7cou"]
+[ext_resource type="Texture2D" uid="uid://wgiaxo4cipuk" path="res://Images/ChatGPT Image Oct 9, 2025, 06_52_25 PM.png" id="6_anmep"]
+[ext_resource type="FontFile" uid="uid://dlgaaa84a0faq" path="res://fonts/8bitOperatorPlus8-Regular.ttf" id="7_hcr37"]
+[ext_resource type="Script" uid="uid://bc4y1ifcwf6gn" path="res://scripts/comuptertext.gd" id="8_tf1c6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fxa6l"]
+size = Vector2(1223, 63)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_brotk"]
+size = Vector2(100, 71)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_brotk"]
+radius = 59.0085
+
+[node name="Computador" type="Node2D"]
+script = ExtResource("1_x8vny")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+process_mode = 3
+
+[node name="transformacion" type="VideoStreamPlayer" parent="CanvasLayer"]
+process_mode = 3
+offset_left = -2.0
+offset_top = -2.0
+offset_right = 38.0
+offset_bottom = 38.0
+stream = ExtResource("2_hcr37")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 1536.0
+offset_bottom = 1024.0
+scale = Vector2(0.76648515, 0.64259624)
+texture = ExtResource("3_tf1c6")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(597, 640)
+shape = SubResource("RectangleShape2D_fxa6l")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(1, 272)
+rotation = -1.5469271
+shape = SubResource("RectangleShape2D_fxa6l")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(1199, 254)
+rotation = -1.5469271
+shape = SubResource("RectangleShape2D_fxa6l")
+
+[node name="Knight" parent="StaticBody2D" instance=ExtResource("2_jfdb7")]
+position = Vector2(372, -51)
+
+[node name="Gmail" type="Sprite2D" parent="."]
+position = Vector2(135.99976, 461.99994)
+scale = Vector2(0.311111, 0.305556)
+texture = ExtResource("4_x7cou")
+
+[node name="Area2D" type="Area2D" parent="Gmail"]
+position = Vector2(-3506.787, -1826.1792)
+scale = Vector2(3.214287, 3.2727227)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Gmail/Area2D"]
+position = Vector2(1089, 557)
+shape = SubResource("RectangleShape2D_brotk")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 537.0
+offset_top = 359.0
+offset_right = 577.0
+offset_bottom = 382.0
+
+[node name="text" type="Sprite2D" parent="."]
+position = Vector2(569, 157)
+scale = Vector2(1.30273, 0.297852)
+texture = ExtResource("6_anmep")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = 92.0
+offset_top = 66.5002
+offset_right = 1048.0
+offset_bottom = 194.5
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("7_hcr37")
+theme_override_font_sizes/normal_font_size = 50
+bbcode_enabled = true
+text = "
+"
+scroll_following = true
+script = ExtResource("8_tf1c6")
+
+[node name="Google" type="Sprite2D" parent="."]
+position = Vector2(1062, 421)
+scale = Vector2(0.174006, 0.161932)
+texture = ExtResource("4_brotk")
+
+[node name="Area2D2" type="Area2D" parent="Google"]
+position = Vector2(-494.2365, -3186.5225)
+scale = Vector2(5.7469287, 6.175432)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Google/Area2D2"]
+position = Vector2(87, 514)
+shape = SubResource("CircleShape2D_brotk")
+
+[connection signal="body_entered" from="Gmail/Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="Google/Area2D2" to="." method="_on_area_2d_2_body_entered"]

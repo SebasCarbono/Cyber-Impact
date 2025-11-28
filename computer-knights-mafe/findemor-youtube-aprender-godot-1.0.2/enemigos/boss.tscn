@@ -1,0 +1,168 @@
+[gd_scene load_steps=22 format=3 uid="uid://dgaheqby8ruce"]
+
+[ext_resource type="Script" uid="uid://bq5bb0sp1olwc" path="res://findemor-youtube-aprender-godot-1.0.2/enemigos/boss.gd" id="1_iqxaj"]
+[ext_resource type="Texture2D" uid="uid://b6t3nhypi6g8" path="res://Images/Monsters/PNG/medusa/Attack1.png" id="3_pyqbo"]
+[ext_resource type="Texture2D" uid="uid://xhwb7mu1ga64" path="res://Images/Monsters/PNG/medusa/Attack2.png" id="4_7tyri"]
+[ext_resource type="Texture2D" uid="uid://w3q5qcfoykso" path="res://Images/Monsters/PNG/medusa/Attack3.png" id="5_khy14"]
+[ext_resource type="Texture2D" uid="uid://c7yuompo7tp7q" path="res://Images/Monsters/PNG/medusa/Attack4.png" id="6_qg1q3"]
+[ext_resource type="Texture2D" uid="uid://ch8g65tyuct5h" path="res://Images/Monsters/PNG/medusa/Attack5.png" id="7_p26pi"]
+[ext_resource type="Texture2D" uid="uid://dynw4tc0v6daf" path="res://Images/Monsters/PNG/medusa/Attack6.png" id="8_7srvw"]
+[ext_resource type="Texture2D" uid="uid://dnvaq7blhu2ly" path="res://Images/Monsters/PNG/medusa/Death1.png" id="8_illil"]
+[ext_resource type="Texture2D" uid="uid://cdt8kd7jc8kna" path="res://Images/Monsters/PNG/medusa/Idle1.png" id="8_khy14"]
+[ext_resource type="Texture2D" uid="uid://cvw3t07j7wnig" path="res://Images/Monsters/PNG/medusa/Death2.png" id="9_gr5os"]
+[ext_resource type="Texture2D" uid="uid://x5lql4sf8i4d" path="res://Images/Monsters/PNG/medusa/Idle2.png" id="9_qg1q3"]
+[ext_resource type="Texture2D" uid="uid://c12jsp7okm856" path="res://Images/Monsters/PNG/medusa/Idle3.png" id="10_p26pi"]
+[ext_resource type="Texture2D" uid="uid://bnvfhrn6ldug0" path="res://Images/Monsters/PNG/medusa/Death3.png" id="10_swgrs"]
+[ext_resource type="Texture2D" uid="uid://ceks6bi6acxdk" path="res://Images/Monsters/PNG/medusa/Death4.png" id="11_pnxpu"]
+[ext_resource type="Texture2D" uid="uid://dvjrhsmpv6256" path="res://Images/Monsters/PNG/medusa/Death5.png" id="12_fr2at"]
+[ext_resource type="Texture2D" uid="uid://c71cubk0th14w" path="res://Images/Monsters/PNG/medusa/Death6.png" id="13_1xdug"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_krw33"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_pyqbo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_7tyri")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_khy14")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_qg1q3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_p26pi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_7srvw")
+}],
+"loop": false,
+"name": &"attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_illil")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_gr5os")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_swgrs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_pnxpu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_fr2at")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_1xdug")
+}],
+"loop": false,
+"name": &"dead",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_khy14")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_qg1q3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_p26pi")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13_1xdug")
+}],
+"loop": true,
+"name": &"muerto",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_46q4g"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CharacterSquareRed:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_uknsv"]
+resource_name = "lanzar"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CharacterSquareRed:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.8, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-1, 1), Vector2(-1, 1), Vector2(1, 1)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1.3),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"launch_barrel"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_c685m"]
+resource_name = "reposo"
+loop_mode = 1
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wdbqv"]
+_data = {
+&"RESET": SubResource("Animation_46q4g"),
+&"lanzar": SubResource("Animation_uknsv"),
+&"reposo": SubResource("Animation_c685m")
+}
+
+[node name="Boss" type="Node2D"]
+position = Vector2(280, 125)
+script = ExtResource("1_iqxaj")
+
+[node name="CharacterSquareRed" type="AnimatedSprite2D" parent="."]
+position = Vector2(-16, 16.000002)
+sprite_frames = SubResource("SpriteFrames_krw33")
+animation = &"muerto"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="CharacterSquareRed"]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_wdbqv")
+}
+autoplay = "reposo"
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
+[connection signal="animation_finished" from="CharacterSquareRed" to="." method="_on_character_square_red_animation_finished"]

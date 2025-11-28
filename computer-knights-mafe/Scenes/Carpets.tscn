@@ -1,0 +1,119 @@
+[gd_scene load_steps=7 format=3 uid="uid://jwpfwuy2qcmy"]
+
+[ext_resource type="Script" uid="uid://on1evdd060cu" path="res://scripts/carpets.gd" id="1_kjm1p"]
+[ext_resource type="Texture2D" uid="uid://b2ujjn0111lx6" path="res://Images/ChatGPT Image 9 oct 2025, 09_45_25 p.m..png" id="1_mgits"]
+[ext_resource type="Texture2D" uid="uid://sjmvp8lt0d0a" path="res://Images/carpet.webp" id="2_5t5gb"]
+[ext_resource type="PackedScene" uid="uid://cx458qm61dpee" path="res://Scenes/knight.tscn" id="3_5t5gb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kjm1p"]
+size = Vector2(121, 79)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5t5gb"]
+size = Vector2(1150, 100.5)
+
+[node name="Cut" type="Node2D"]
+script = ExtResource("1_kjm1p")
+
+[node name="ChatGptImage9Oct2025,094525P_m_" type="Sprite2D" parent="."]
+position = Vector2(49.9999, 784)
+scale = Vector2(1.63672, 2.04883)
+texture = ExtResource("1_mgits")
+
+[node name="Carpet" type="Sprite2D" parent="."]
+position = Vector2(1069, 447.5)
+scale = Vector2(0.252311, 0.22)
+texture = ExtResource("2_5t5gb")
+
+[node name="Carpet2" type="Sprite2D" parent="."]
+position = Vector2(1066, 316)
+scale = Vector2(0.252311, 0.212727)
+texture = ExtResource("2_5t5gb")
+
+[node name="Carpet3" type="Sprite2D" parent="."]
+position = Vector2(606.5, 572.5)
+scale = Vector2(0.252311, 0.201818)
+texture = ExtResource("2_5t5gb")
+
+[node name="Carpet4" type="Sprite2D" parent="."]
+position = Vector2(761.5, 572.5)
+scale = Vector2(0.252311, 0.209091)
+texture = ExtResource("2_5t5gb")
+
+[node name="Carpet5" type="Sprite2D" parent="."]
+position = Vector2(919.5, 572)
+scale = Vector2(0.252311, 0.214545)
+texture = ExtResource("2_5t5gb")
+
+[node name="Carpet6" type="Sprite2D" parent="."]
+position = Vector2(1074.5, 574.5)
+scale = Vector2(0.252311, 0.212727)
+texture = ExtResource("2_5t5gb")
+
+[node name="Carpet7" type="Sprite2D" parent="."]
+position = Vector2(766.25, 445.5)
+scale = Vector2(0.252311, 0.209091)
+texture = ExtResource("2_5t5gb")
+
+[node name="Carpet8" type="Sprite2D" parent="."]
+position = Vector2(921.25, 444.5)
+scale = Vector2(0.252311, 0.22)
+texture = ExtResource("2_5t5gb")
+
+[node name="Carpet9" type="Sprite2D" parent="."]
+position = Vector2(382, 110)
+scale = Vector2(0.252311, 0.214546)
+texture = ExtResource("2_5t5gb")
+
+[node name="Carpet10" type="Sprite2D" parent="."]
+position = Vector2(82, 121)
+scale = Vector2(0.252311, 0.205455)
+texture = ExtResource("2_5t5gb")
+
+[node name="Carpet11" type="Sprite2D" parent="."]
+position = Vector2(234, 116)
+scale = Vector2(0.252311, 0.205455)
+texture = ExtResource("2_5t5gb")
+
+[node name="Carpet12" type="Sprite2D" parent="."]
+position = Vector2(85, 255)
+scale = Vector2(0.252311, 0.216364)
+texture = ExtResource("2_5t5gb")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(608.5, 584.5)
+shape = SubResource("RectangleShape2D_kjm1p")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(764, 463)
+shape = SubResource("RectangleShape2D_kjm1p")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(759, 571)
+shape = SubResource("RectangleShape2D_kjm1p")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(919, 460)
+shape = SubResource("RectangleShape2D_kjm1p")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(1067, 329)
+shape = SubResource("RectangleShape2D_kjm1p")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(573, 679.25)
+shape = SubResource("RectangleShape2D_5t5gb")
+
+[node name="Knight" parent="." instance=ExtResource("3_5t5gb")]
+position = Vector2(-46, 15)
+
+[node name="Button" type="Button" parent="."]
+offset_left = 20.0
+offset_top = 11.0
+offset_right = 77.0
+offset_bottom = 42.0
+text = "Volver
+"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

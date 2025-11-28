@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://b6uqfrnmphs6d"]
+
+[ext_resource type="Texture2D" uid="uid://beuhdopu4nn4y" path="res://Images/ChatGPT Image Oct 23, 2025, 10_39_51 PM.png" id="1_vg8y8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lbloo"]
+size = Vector2(1440, 20)
+
+[node name="Puente" type="StaticBody2D"]
+
+[node name="Bridge" type="Sprite2D" parent="."]
+position = Vector2(37, 71)
+scale = Vector2(1.2311198, 1)
+texture = ExtResource("1_vg8y8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -10.5)
+shape = SubResource("RectangleShape2D_lbloo")

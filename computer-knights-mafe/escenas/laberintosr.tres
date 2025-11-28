@@ -1,0 +1,14 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://6tto52vds7c4"]
+
+[ext_resource type="Shader" uid="uid://di2vuurwtfese" path="res://escenas/laberinto_circular.gdshader" id="1_kxe57"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_kxe57")
+shader_parameter/base_color = Color(0, 0.025, 0.05, 1)
+shader_parameter/data_color = Color(0, 0.5, 0.9, 1)
+shader_parameter/corruption_color = Color(0.9, 0.1, 0.3, 1)
+shader_parameter/corruption_intensity = 0.6
+shader_parameter/line_density = 12.0
+shader_parameter/flow_speed = 0.1
+shader_parameter/damage_speed = 0.3

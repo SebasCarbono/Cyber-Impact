@@ -1,0 +1,229 @@
+[gd_scene load_steps=41 format=3 uid="uid://dy76k3p0ovbmo"]
+
+[ext_resource type="Texture2D" uid="uid://bw3rk2uds734a" path="res://Images/inbox.png" id="1_6b43q"]
+[ext_resource type="Script" uid="uid://m0u73ihio8s5" path="res://scripts/inbox.gd" id="1_6grod"]
+[ext_resource type="Texture2D" uid="uid://dk0s4po6bckre" path="res://Images/Monsters/PNG/jinn_animation/Flight1.png" id="2_thapd"]
+[ext_resource type="Texture2D" uid="uid://bac32na04jlag" path="res://Images/Monsters/PNG/jinn_animation/Flight2.png" id="3_12wo4"]
+[ext_resource type="Texture2D" uid="uid://cnvvupbvbdsj1" path="res://Images/Monsters/PNG/jinn_animation/Flight3.png" id="4_sbdyq"]
+[ext_resource type="Texture2D" uid="uid://hwlsh33cvbqc" path="res://Images/Monsters/PNG/jinn_animation/Flight4.png" id="5_gi7o4"]
+[ext_resource type="Texture2D" uid="uid://cdby5co5rw2a" path="res://Images/Monsters/PNG/jinn_animation/Hurt1.png" id="6_wkfm4"]
+[ext_resource type="Texture2D" uid="uid://buv5847v52tbr" path="res://Images/Monsters/PNG/jinn_animation/Hurt2.png" id="7_ques1"]
+[ext_resource type="Texture2D" uid="uid://kfuhp0m6dei5" path="res://Images/Monsters/PNG/jinn_animation/Attack1.png" id="8_aidbr"]
+[ext_resource type="Texture2D" uid="uid://cog5h2e7by8sb" path="res://Images/Monsters/PNG/jinn_animation/Attack2.png" id="9_om2d2"]
+[ext_resource type="Texture2D" uid="uid://u06txm27bg61" path="res://Images/Monsters/PNG/jinn_animation/Attack3.png" id="10_k2c5t"]
+[ext_resource type="Texture2D" uid="uid://ds6xwdkksb8kn" path="res://Images/Monsters/PNG/jinn_animation/Attack4.png" id="11_yihci"]
+[ext_resource type="Texture2D" uid="uid://c3na7bdyukm52" path="res://Images/Monsters/PNG/jinn_animation/Death1.png" id="12_jdrml"]
+[ext_resource type="Texture2D" uid="uid://b6eek625u75xg" path="res://Images/Monsters/PNG/jinn_animation/Death2.png" id="13_d7qwk"]
+[ext_resource type="Texture2D" uid="uid://y0rcp653kect" path="res://Images/Monsters/PNG/jinn_animation/Death3.png" id="14_jdbj6"]
+[ext_resource type="Texture2D" uid="uid://nt10a7cmfwtt" path="res://Images/Monsters/PNG/jinn_animation/Death4.png" id="15_nqesi"]
+[ext_resource type="Texture2D" uid="uid://3ivw480uw7jq" path="res://Images/Monsters/PNG/jinn_animation/Death5.png" id="16_pg74h"]
+[ext_resource type="Texture2D" uid="uid://b4r28r48murvk" path="res://Images/Monsters/PNG/jinn_animation/Death6.png" id="17_8nqsd"]
+[ext_resource type="Texture2D" uid="uid://ba4ya3fln8bla" path="res://Images/Monsters/PNG/jinn_animation/Idle1.png" id="18_cxb32"]
+[ext_resource type="Texture2D" uid="uid://tl3rqxattrhk" path="res://Images/Monsters/PNG/jinn_animation/Idle2.png" id="19_6b43q"]
+[ext_resource type="Texture2D" uid="uid://s7cknagsx272" path="res://Images/Monsters/PNG/jinn_animation/Idle3.png" id="20_dhiaq"]
+[ext_resource type="Texture2D" uid="uid://wgiaxo4cipuk" path="res://Images/ChatGPT Image Oct 9, 2025, 06_52_25 PM.png" id="22_dhiaq"]
+[ext_resource type="Texture2D" uid="uid://41vxvo47imo2" path="res://Images/YellowKnight.png" id="22_gi7o4"]
+[ext_resource type="FontFile" uid="uid://dlgaaa84a0faq" path="res://fonts/8bitOperatorPlus8-Regular.ttf" id="23_wkfm4"]
+[ext_resource type="Texture2D" uid="uid://btqj13hknjrvd" path="res://Images/Monsters/PNG/jinn_animation/Magic_Attack1.png" id="25_cxb32"]
+[ext_resource type="Texture2D" uid="uid://sgyma0l11dho" path="res://Images/Monsters/PNG/jinn_animation/Magic_Attack2.png" id="26_6b43q"]
+[ext_resource type="Texture2D" uid="uid://crlvrec7ph8do" path="res://Images/Monsters/PNG/jinn_animation/Magic_Attack3.png" id="27_dhiaq"]
+[ext_resource type="Texture2D" uid="uid://18ev7si8pwb6" path="res://Images/Monsters/PNG/jinn_animation/Magic_Attack4.png" id="28_lph40"]
+[ext_resource type="Texture2D" uid="uid://ca6x1qn64bt7n" path="res://Images/Monsters/PNG/jinn_animation/Magic_Attack5.png" id="29_ihc2q"]
+[ext_resource type="Texture2D" uid="uid://bya0x6jtmocbr" path="res://Images/Monsters/PNG/jinn_animation/Magic_Attack6.png" id="30_8yyyq"]
+[ext_resource type="Texture2D" uid="uid://b4nqhfgtv4xtd" path="res://Images/Monsters/PNG/jinn_animation/Magic_Attack7.png" id="31_gec43"]
+[ext_resource type="Texture2D" uid="uid://db16nywl5qqmr" path="res://Images/Monsters/PNG/jinn_animation/Magic_Attack8.png" id="32_vgmf2"]
+[ext_resource type="Texture2D" uid="uid://1ehx1ahm0j32" path="res://Images/Monsters/PNG/jinn_animation/Magic_Attack9.png" id="33_wuhri"]
+[ext_resource type="Texture2D" uid="uid://cbkjk6nl0chho" path="res://Images/Monsters/PNG/jinn_animation/Magic_Attack10.png" id="34_lwgfl"]
+[ext_resource type="Texture2D" uid="uid://dyqujhr8pljd0" path="res://Images/Monsters/PNG/jinn_animation/Magic_Attack11.png" id="35_i600u"]
+[ext_resource type="Texture2D" uid="uid://cu5p6jxlevdvg" path="res://Images/Monsters/PNG/jinn_animation/Magic_Attack22.png" id="36_wnmo4"]
+[ext_resource type="Texture2D" uid="uid://c3yhei624d1kb" path="res://Images/Monsters/PNG/jinn_animation/Magic_Attack23.png" id="37_mew6q"]
+[ext_resource type="PackedScene" uid="uid://coqpqckpt8qbn" path="res://Scenes/Mails.tscn" id="38_6b43q"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lph40"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_thapd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_12wo4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_sbdyq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_gi7o4")
+}],
+"loop": true,
+"name": &"Flight",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_wkfm4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_ques1")
+}],
+"loop": true,
+"name": &"Hurt",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_aidbr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_om2d2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_k2c5t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_yihci")
+}],
+"loop": false,
+"name": &"attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_jdrml")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_d7qwk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_jdbj6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_nqesi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_pg74h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_8nqsd")
+}],
+"loop": false,
+"name": &"death",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("18_cxb32")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_6b43q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_dhiaq")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ygx6m"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("25_cxb32")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_6b43q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_dhiaq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_lph40")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_ihc2q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_8yyyq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_gec43")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_vgmf2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("33_wuhri")
+}, {
+"duration": 1.0,
+"texture": ExtResource("34_lwgfl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("35_i600u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("36_wnmo4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("37_mew6q")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="baxkground" type="Sprite2D" parent="."]
+modulate = Color(0.493545, 0.493546, 0.493546, 1)
+position = Vector2(574, 357.5)
+scale = Vector2(0.789062, 0.745117)
+
+[node name="inbox" type="Sprite2D" parent="."]
+modulate = Color(0.3987929, 0.39879292, 0.3987929, 1)
+position = Vector2(661.99994, 417)
+scale = Vector2(1.0130209, 0.859375)
+texture = ExtResource("1_6b43q")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(824, 167)
+scale = Vector2(4.3728, 3.79468)
+sprite_frames = SubResource("SpriteFrames_lph40")
+animation = &"death"
+frame = 5
+frame_progress = 1.0
+flip_h = true
+
+[node name="YellowKnight" type="Sprite2D" parent="."]
+position = Vector2(203, 350)
+scale = Vector2(0.455078, 0.417969)
+texture = ExtResource("22_gi7o4")
+
+[node name="text" type="Sprite2D" parent="."]
+position = Vector2(577.0011, 548)
+scale = Vector2(1.392576, 0.297852)
+texture = ExtResource("22_dhiaq")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = 82.0
+offset_top = 453.0
+offset_right = 1057.0001
+offset_bottom = 581.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("23_wkfm4")
+theme_override_font_sizes/normal_font_size = 50
+bbcode_enabled = true
+text = "
+"
+script = ExtResource("1_6grod")
+
+[node name="Power" type="AnimatedSprite2D" parent="."]
+position = Vector2(653, 192)
+scale = Vector2(2.7832, 2.65015)
+sprite_frames = SubResource("SpriteFrames_ygx6m")
+frame = 12
+frame_progress = 1.0
+flip_h = true
+
+[node name="Mails" parent="." instance=ExtResource("38_6b43q")]
+
+[connection signal="animation_finished" from="Power" to="RichTextLabel" method="_on_power_animation_finished"]

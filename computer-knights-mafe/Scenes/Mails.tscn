@@ -1,0 +1,44 @@
+[gd_scene load_steps=4 format=3 uid="uid://coqpqckpt8qbn"]
+
+[ext_resource type="Texture2D" uid="uid://b7mhncpucfoje" path="res://Images/ChatGPT Image 9 oct 2025, 07_38_28 p.m..png" id="1_dsgse"]
+[ext_resource type="Script" uid="uid://dv2p1fh5sbio8" path="res://scripts/mails.gd" id="1_xh47o"]
+[ext_resource type="FontFile" uid="uid://dlgaaa84a0faq" path="res://fonts/8bitOperatorPlus8-Regular.ttf" id="2_xh47o"]
+
+[node name="Mails" type="Node2D"]
+script = ExtResource("1_xh47o")
+
+[node name="gmails" type="Sprite2D" parent="."]
+position = Vector2(588, 311)
+scale = Vector2(0.777995, 0.781738)
+texture = ExtResource("1_dsgse")
+
+[node name="mail1" type="Button" parent="."]
+offset_left = 197.0
+offset_top = 543.0
+offset_right = 318.0
+offset_bottom = 598.0
+theme_override_fonts/font = ExtResource("2_xh47o")
+theme_override_font_sizes/font_size = 40
+text = "Read"
+
+[node name="mail2" type="Button" parent="."]
+offset_left = 571.0
+offset_top = 539.0
+offset_right = 692.0
+offset_bottom = 594.0
+theme_override_fonts/font = ExtResource("2_xh47o")
+theme_override_font_sizes/font_size = 40
+text = "Read"
+
+[node name="mail3" type="Button" parent="."]
+offset_left = 963.0
+offset_top = 539.0
+offset_right = 1084.0
+offset_bottom = 594.0
+theme_override_fonts/font = ExtResource("2_xh47o")
+theme_override_font_sizes/font_size = 40
+text = "Read"
+
+[connection signal="pressed" from="mail1" to="." method="_on_mail_1_pressed"]
+[connection signal="pressed" from="mail2" to="." method="_on_mail_2_pressed"]
+[connection signal="pressed" from="mail3" to="." method="_on_mail_3_pressed"]

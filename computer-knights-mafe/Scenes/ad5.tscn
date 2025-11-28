@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://bytva7peayl40"]
+
+[ext_resource type="Script" uid="uid://bogabl8ulay88" path="res://scripts/ad_5.gd" id="1_7w6ib"]
+[ext_resource type="Texture2D" uid="uid://ct0atw5o224e4" path="res://Images/ad5.png" id="2_7w6ib"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yun2k"]
+size = Vector2(177, 168)
+
+[node name="ad5" type="Node2D"]
+script = ExtResource("1_7w6ib")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(173.75, -118)
+scale = Vector2(0.31543, 0.302734)
+texture = ExtResource("2_7w6ib")
+
+[node name="ads" type="Area2D" parent="." groups=["ads"]]
+
+[node name="ad5" type="CollisionShape2D" parent="ads"]
+position = Vector2(164.5, -156)
+shape = SubResource("RectangleShape2D_yun2k")
+
+[connection signal="area_entered" from="ads" to="." method="_on_ads_area_entered"]

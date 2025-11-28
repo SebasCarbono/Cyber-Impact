@@ -1,0 +1,772 @@
+[gd_scene load_steps=38 format=3 uid="uid://ov3hl4u40ru0"]
+
+[ext_resource type="Script" uid="uid://dr5vuml514c2v" path="res://codigos/Escena_principal.gd" id="1"]
+[ext_resource type="PackedScene" uid="uid://b0o2lhwuvmkd" path="res://escenas/laberinto_circular.tscn" id="2"]
+[ext_resource type="PackedScene" uid="uid://luxwilfxj4ew" path="res://escenas/Laberinto_cuadrado.tscn" id="3"]
+[ext_resource type="PackedScene" uid="uid://bvw3v740s48re" path="res://escenas/Suelo.tscn" id="4"]
+[ext_resource type="PackedScene" uid="uid://c2n15e0duirrp" path="res://area_3d.tscn" id="4_44eu1"]
+[ext_resource type="PackedScene" uid="uid://bwqolo43kgnt6" path="res://escenas/esfera.tscn" id="5"]
+[ext_resource type="Script" uid="uid://byjovvo3jpq6" path="res://codigos/Camera.gd" id="6"]
+[ext_resource type="PackedScene" uid="uid://c8kxj30gocsn0" path="res://escenas/llave.tscn" id="7"]
+[ext_resource type="PackedScene" path="res://escenas/candado.tscn" id="8"]
+[ext_resource type="AudioStream" uid="uid://b03on6xhv1cui" path="res://musica_y_vfx/Yu_City_Kamata.ogg" id="9"]
+[ext_resource type="AudioStream" uid="uid://bojqtbkglxfd5" path="res://musica_y_vfx/Paintball_Theme.ogg" id="10"]
+[ext_resource type="AudioStream" uid="uid://c6envgs1tjrt1" path="res://musica_y_vfx/powerUP.wav" id="11"]
+[ext_resource type="AudioStream" uid="uid://br32g1sy7bvgo" path="res://musica_y_vfx/lose sound 1-2.wav" id="12"]
+[ext_resource type="AudioStream" uid="uid://uj6uft37goab" path="res://musica_y_vfx/Barge_Sting.wav" id="13"]
+[ext_resource type="AudioStream" uid="uid://b4b8l80six8c0" path="res://musica_y_vfx/Barge_Sting.ogg" id="14"]
+[ext_resource type="AudioStream" uid="uid://db8rahyfd1s6x" path="res://musica_y_vfx/iniciar_click.ogg" id="15"]
+[ext_resource type="AudioStream" uid="uid://76xm3pp4b5lj" path="res://musica_y_vfx/Conteo_sonido.wav" id="16"]
+[ext_resource type="AudioStream" uid="uid://c48o177efndfv" path="res://musica_y_vfx/Victory sound effect.wav" id="17"]
+[ext_resource type="Texture2D" uid="uid://svtmgmjnoa13" path="res://image-removebg-preview.png" id="20_j8hxj"]
+[ext_resource type="FontFile" uid="uid://nw4xh0xtkuig" path="res://typografias/Pixeltype.ttf" id="21"]
+
+[sub_resource type="Sky" id="1"]
+
+[sub_resource type="Environment" id="2"]
+background_mode = 2
+background_color = Color(0.647059, 1, 0, 1)
+sky = SubResource("1")
+
+[sub_resource type="BoxShape3D" id="3"]
+size = Vector3(2, 2, 3.65964)
+
+[sub_resource type="Animation" id="4"]
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Interface_UI/Game over:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(121, -200), Vector2(121, 240), Vector2(121, 281.91), Vector2(121, 240)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Interface_UI/colorfondoMuerte:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.14902, 0.14902, 0.14902, 0), Color(0.14902, 0.14902, 0.14902, 0.611765)]
+}
+
+[sub_resource type="Animation" id="5"]
+resource_name = "winner_animacion"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Interface_UI/Winner_texto:theme_override_colors/font_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Interface_UI/Winner_texto/info winner:theme_override_colors/font_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Interface_UI/Winner_texto:theme_override_colors/font_shadow_color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(0, 0, 0, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Interface_UI/Winner_texto/info winner:theme_override_colors/font_shadow_color")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_oxw6p"]
+_data = {
+&"Game_over_animacion": SubResource("4"),
+&"winner_animacion": SubResource("5")
+}
+
+[sub_resource type="Animation" id="6"]
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("iluminacion/WorldEnvironment:environment:background_energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 0.1]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("iluminacion/DirectionalLight3D:light_energy")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 0.1]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("personaje/Camera3D/luz_personaje:light_energy")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 3.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dwu0c"]
+_data = {
+&"claridad_mundo": SubResource("6")
+}
+
+[sub_resource type="BoxShape3D" id="7"]
+size = Vector3(58.3892, 9.98204, 149.704)
+
+[sub_resource type="FontFile" id="8"]
+fallbacks = Array[Font]([ExtResource("21")])
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/17/0/ascent = 0.0
+cache/0/17/0/descent = 0.0
+cache/0/17/0/underline_position = 0.0
+cache/0/17/0/underline_thickness = 0.0
+cache/0/17/0/scale = 1.0
+cache/0/18/0/ascent = 0.0
+cache/0/18/0/descent = 0.0
+cache/0/18/0/underline_position = 0.0
+cache/0/18/0/underline_thickness = 0.0
+cache/0/18/0/scale = 1.0
+cache/0/19/0/ascent = 0.0
+cache/0/19/0/descent = 0.0
+cache/0/19/0/underline_position = 0.0
+cache/0/19/0/underline_thickness = 0.0
+cache/0/19/0/scale = 1.0
+cache/0/20/0/ascent = 0.0
+cache/0/20/0/descent = 0.0
+cache/0/20/0/underline_position = 0.0
+cache/0/20/0/underline_thickness = 0.0
+cache/0/20/0/scale = 1.0
+cache/0/21/0/ascent = 0.0
+cache/0/21/0/descent = 0.0
+cache/0/21/0/underline_position = 0.0
+cache/0/21/0/underline_thickness = 0.0
+cache/0/21/0/scale = 1.0
+cache/0/22/0/ascent = 0.0
+cache/0/22/0/descent = 0.0
+cache/0/22/0/underline_position = 0.0
+cache/0/22/0/underline_thickness = 0.0
+cache/0/22/0/scale = 1.0
+cache/0/23/0/ascent = 0.0
+cache/0/23/0/descent = 0.0
+cache/0/23/0/underline_position = 0.0
+cache/0/23/0/underline_thickness = 0.0
+cache/0/23/0/scale = 1.0
+cache/0/24/0/ascent = 0.0
+cache/0/24/0/descent = 0.0
+cache/0/24/0/underline_position = 0.0
+cache/0/24/0/underline_thickness = 0.0
+cache/0/24/0/scale = 1.0
+cache/0/25/0/ascent = 0.0
+cache/0/25/0/descent = 0.0
+cache/0/25/0/underline_position = 0.0
+cache/0/25/0/underline_thickness = 0.0
+cache/0/25/0/scale = 1.0
+cache/0/26/0/ascent = 0.0
+cache/0/26/0/descent = 0.0
+cache/0/26/0/underline_position = 0.0
+cache/0/26/0/underline_thickness = 0.0
+cache/0/26/0/scale = 1.0
+cache/0/27/0/ascent = 0.0
+cache/0/27/0/descent = 0.0
+cache/0/27/0/underline_position = 0.0
+cache/0/27/0/underline_thickness = 0.0
+cache/0/27/0/scale = 1.0
+cache/0/28/0/ascent = 0.0
+cache/0/28/0/descent = 0.0
+cache/0/28/0/underline_position = 0.0
+cache/0/28/0/underline_thickness = 0.0
+cache/0/28/0/scale = 1.0
+cache/0/29/0/ascent = 0.0
+cache/0/29/0/descent = 0.0
+cache/0/29/0/underline_position = 0.0
+cache/0/29/0/underline_thickness = 0.0
+cache/0/29/0/scale = 1.0
+cache/0/30/0/ascent = 0.0
+cache/0/30/0/descent = 0.0
+cache/0/30/0/underline_position = 0.0
+cache/0/30/0/underline_thickness = 0.0
+cache/0/30/0/scale = 1.0
+cache/0/31/0/ascent = 0.0
+cache/0/31/0/descent = 0.0
+cache/0/31/0/underline_position = 0.0
+cache/0/31/0/underline_thickness = 0.0
+cache/0/31/0/scale = 1.0
+
+[sub_resource type="FontFile" id="9"]
+fallbacks = Array[Font]([ExtResource("21")])
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/17/0/ascent = 0.0
+cache/0/17/0/descent = 0.0
+cache/0/17/0/underline_position = 0.0
+cache/0/17/0/underline_thickness = 0.0
+cache/0/17/0/scale = 1.0
+cache/0/18/0/ascent = 0.0
+cache/0/18/0/descent = 0.0
+cache/0/18/0/underline_position = 0.0
+cache/0/18/0/underline_thickness = 0.0
+cache/0/18/0/scale = 1.0
+cache/0/19/0/ascent = 0.0
+cache/0/19/0/descent = 0.0
+cache/0/19/0/underline_position = 0.0
+cache/0/19/0/underline_thickness = 0.0
+cache/0/19/0/scale = 1.0
+cache/0/20/0/ascent = 0.0
+cache/0/20/0/descent = 0.0
+cache/0/20/0/underline_position = 0.0
+cache/0/20/0/underline_thickness = 0.0
+cache/0/20/0/scale = 1.0
+cache/0/21/0/ascent = 0.0
+cache/0/21/0/descent = 0.0
+cache/0/21/0/underline_position = 0.0
+cache/0/21/0/underline_thickness = 0.0
+cache/0/21/0/scale = 1.0
+cache/0/22/0/ascent = 0.0
+cache/0/22/0/descent = 0.0
+cache/0/22/0/underline_position = 0.0
+cache/0/22/0/underline_thickness = 0.0
+cache/0/22/0/scale = 1.0
+cache/0/23/0/ascent = 0.0
+cache/0/23/0/descent = 0.0
+cache/0/23/0/underline_position = 0.0
+cache/0/23/0/underline_thickness = 0.0
+cache/0/23/0/scale = 1.0
+cache/0/24/0/ascent = 0.0
+cache/0/24/0/descent = 0.0
+cache/0/24/0/underline_position = 0.0
+cache/0/24/0/underline_thickness = 0.0
+cache/0/24/0/scale = 1.0
+cache/0/25/0/ascent = 0.0
+cache/0/25/0/descent = 0.0
+cache/0/25/0/underline_position = 0.0
+cache/0/25/0/underline_thickness = 0.0
+cache/0/25/0/scale = 1.0
+cache/0/26/0/ascent = 0.0
+cache/0/26/0/descent = 0.0
+cache/0/26/0/underline_position = 0.0
+cache/0/26/0/underline_thickness = 0.0
+cache/0/26/0/scale = 1.0
+cache/0/27/0/ascent = 0.0
+cache/0/27/0/descent = 0.0
+cache/0/27/0/underline_position = 0.0
+cache/0/27/0/underline_thickness = 0.0
+cache/0/27/0/scale = 1.0
+cache/0/28/0/ascent = 0.0
+cache/0/28/0/descent = 0.0
+cache/0/28/0/underline_position = 0.0
+cache/0/28/0/underline_thickness = 0.0
+cache/0/28/0/scale = 1.0
+cache/0/29/0/ascent = 0.0
+cache/0/29/0/descent = 0.0
+cache/0/29/0/underline_position = 0.0
+cache/0/29/0/underline_thickness = 0.0
+cache/0/29/0/scale = 1.0
+cache/0/30/0/ascent = 0.0
+cache/0/30/0/descent = 0.0
+cache/0/30/0/underline_position = 0.0
+cache/0/30/0/underline_thickness = 0.0
+cache/0/30/0/scale = 1.0
+cache/0/31/0/ascent = 0.0
+cache/0/31/0/descent = 0.0
+cache/0/31/0/underline_position = 0.0
+cache/0/31/0/underline_thickness = 0.0
+cache/0/31/0/scale = 1.0
+cache/0/32/0/ascent = 0.0
+cache/0/32/0/descent = 0.0
+cache/0/32/0/underline_position = 0.0
+cache/0/32/0/underline_thickness = 0.0
+cache/0/32/0/scale = 1.0
+cache/0/33/0/ascent = 0.0
+cache/0/33/0/descent = 0.0
+cache/0/33/0/underline_position = 0.0
+cache/0/33/0/underline_thickness = 0.0
+cache/0/33/0/scale = 1.0
+cache/0/34/0/ascent = 0.0
+cache/0/34/0/descent = 0.0
+cache/0/34/0/underline_position = 0.0
+cache/0/34/0/underline_thickness = 0.0
+cache/0/34/0/scale = 1.0
+cache/0/35/0/ascent = 0.0
+cache/0/35/0/descent = 0.0
+cache/0/35/0/underline_position = 0.0
+cache/0/35/0/underline_thickness = 0.0
+cache/0/35/0/scale = 1.0
+cache/0/36/0/ascent = 0.0
+cache/0/36/0/descent = 0.0
+cache/0/36/0/underline_position = 0.0
+cache/0/36/0/underline_thickness = 0.0
+cache/0/36/0/scale = 1.0
+cache/0/37/0/ascent = 0.0
+cache/0/37/0/descent = 0.0
+cache/0/37/0/underline_position = 0.0
+cache/0/37/0/underline_thickness = 0.0
+cache/0/37/0/scale = 1.0
+cache/0/38/0/ascent = 0.0
+cache/0/38/0/descent = 0.0
+cache/0/38/0/underline_position = 0.0
+cache/0/38/0/underline_thickness = 0.0
+cache/0/38/0/scale = 1.0
+cache/0/39/0/ascent = 0.0
+cache/0/39/0/descent = 0.0
+cache/0/39/0/underline_position = 0.0
+cache/0/39/0/underline_thickness = 0.0
+cache/0/39/0/scale = 1.0
+cache/0/40/0/ascent = 0.0
+cache/0/40/0/descent = 0.0
+cache/0/40/0/underline_position = 0.0
+cache/0/40/0/underline_thickness = 0.0
+cache/0/40/0/scale = 1.0
+cache/0/41/0/ascent = 0.0
+cache/0/41/0/descent = 0.0
+cache/0/41/0/underline_position = 0.0
+cache/0/41/0/underline_thickness = 0.0
+cache/0/41/0/scale = 1.0
+cache/0/42/0/ascent = 0.0
+cache/0/42/0/descent = 0.0
+cache/0/42/0/underline_position = 0.0
+cache/0/42/0/underline_thickness = 0.0
+cache/0/42/0/scale = 1.0
+cache/0/43/0/ascent = 0.0
+cache/0/43/0/descent = 0.0
+cache/0/43/0/underline_position = 0.0
+cache/0/43/0/underline_thickness = 0.0
+cache/0/43/0/scale = 1.0
+cache/0/44/0/ascent = 0.0
+cache/0/44/0/descent = 0.0
+cache/0/44/0/underline_position = 0.0
+cache/0/44/0/underline_thickness = 0.0
+cache/0/44/0/scale = 1.0
+cache/0/45/0/ascent = 0.0
+cache/0/45/0/descent = 0.0
+cache/0/45/0/underline_position = 0.0
+cache/0/45/0/underline_thickness = 0.0
+cache/0/45/0/scale = 1.0
+cache/0/46/0/ascent = 0.0
+cache/0/46/0/descent = 0.0
+cache/0/46/0/underline_position = 0.0
+cache/0/46/0/underline_thickness = 0.0
+cache/0/46/0/scale = 1.0
+cache/0/47/0/ascent = 0.0
+cache/0/47/0/descent = 0.0
+cache/0/47/0/underline_position = 0.0
+cache/0/47/0/underline_thickness = 0.0
+cache/0/47/0/scale = 1.0
+cache/0/48/0/ascent = 0.0
+cache/0/48/0/descent = 0.0
+cache/0/48/0/underline_position = 0.0
+cache/0/48/0/underline_thickness = 0.0
+cache/0/48/0/scale = 1.0
+cache/0/49/0/ascent = 0.0
+cache/0/49/0/descent = 0.0
+cache/0/49/0/underline_position = 0.0
+cache/0/49/0/underline_thickness = 0.0
+cache/0/49/0/scale = 1.0
+cache/0/50/0/ascent = 0.0
+cache/0/50/0/descent = 0.0
+cache/0/50/0/underline_position = 0.0
+cache/0/50/0/underline_thickness = 0.0
+cache/0/50/0/scale = 1.0
+cache/0/51/0/ascent = 0.0
+cache/0/51/0/descent = 0.0
+cache/0/51/0/underline_position = 0.0
+cache/0/51/0/underline_thickness = 0.0
+cache/0/51/0/scale = 1.0
+cache/0/52/0/ascent = 0.0
+cache/0/52/0/descent = 0.0
+cache/0/52/0/underline_position = 0.0
+cache/0/52/0/underline_thickness = 0.0
+cache/0/52/0/scale = 1.0
+cache/0/53/0/ascent = 0.0
+cache/0/53/0/descent = 0.0
+cache/0/53/0/underline_position = 0.0
+cache/0/53/0/underline_thickness = 0.0
+cache/0/53/0/scale = 1.0
+cache/0/54/0/ascent = 0.0
+cache/0/54/0/descent = 0.0
+cache/0/54/0/underline_position = 0.0
+cache/0/54/0/underline_thickness = 0.0
+cache/0/54/0/scale = 1.0
+cache/0/55/0/ascent = 0.0
+cache/0/55/0/descent = 0.0
+cache/0/55/0/underline_position = 0.0
+cache/0/55/0/underline_thickness = 0.0
+cache/0/55/0/scale = 1.0
+cache/0/56/0/ascent = 0.0
+cache/0/56/0/descent = 0.0
+cache/0/56/0/underline_position = 0.0
+cache/0/56/0/underline_thickness = 0.0
+cache/0/56/0/scale = 1.0
+
+[sub_resource type="FontFile" id="10"]
+fallbacks = Array[Font]([ExtResource("21")])
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+
+[sub_resource type="FontFile" id="11"]
+fallbacks = Array[Font]([ExtResource("21")])
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+
+[sub_resource type="FontFile" id="12"]
+fallbacks = Array[Font]([ExtResource("21")])
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_j8hxj"]
+rough = true
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_j8hxj"]
+size = Vector3(10.1516, 4.4473, 153.4966)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_oxw6p"]
+size = Vector3(265.136, 3.8264, 7.84518)
+
+[node name="Escena_principal" type="Node3D" groups=["Escena_principal"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 86.10941, 0, 19.562834)
+script = ExtResource("1")
+
+[node name="iluminacion" type="Node3D" parent="."]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="iluminacion"]
+transform = Transform3D(0.34185305, -0.6366718, -0.69122034, 0.5032391, -0.49716073, 0.7068109, -0.79365414, -0.58947456, 0.15044221, 1.962532, 1.6483841, 75.36539)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="iluminacion"]
+environment = SubResource("2")
+
+[node name="laberintos" type="Node3D" parent="."]
+
+[node name="laberinto_circular" parent="laberintos" instance=ExtResource("2")]
+transform = Transform3D(-0.57277274, 0, 0.82050085, 0, 1.0006449, 0, -0.82050085, 0, -0.57277274, -9.714767, 18.084585, 75.62796)
+visible = false
+
+[node name="Laberinto_cuadrado" parent="laberintos" instance=ExtResource("3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.761032, 0, 57.15735)
+
+[node name="Area3D2" parent="laberintos/Laberinto_cuadrado" instance=ExtResource("4_44eu1")]
+transform = Transform3D(2.151246, 0, 0, 0, 1, 0, 0, 0, 2.2035637, 84.92011, 0.7384758, 25.183784)
+nombre = "A"
+
+[node name="Area3D3" parent="laberintos/Laberinto_cuadrado" instance=ExtResource("4_44eu1")]
+transform = Transform3D(2.151246, 0, 0, 0, 1, 0, 0, 0, 2.2035637, 84.34075, 0.7384758, -15.93211)
+nombre = "B"
+
+[node name="Area3D4" parent="laberintos/Laberinto_cuadrado" instance=ExtResource("4_44eu1")]
+transform = Transform3D(2.151246, 0, 0, 0, 1, 0, 0, 0, 2.2035637, 109.76386, 0.7384758, -16.05875)
+nombre = "C"
+
+[node name="Area3D5" parent="laberintos/Laberinto_cuadrado" instance=ExtResource("4_44eu1")]
+transform = Transform3D(2.151246, 0, 0, 0, 1, 0, 0, 0, 2.2035637, 84.496574, 0.7384758, 2.5458984)
+nombre = "D"
+
+[node name="Area3D6" parent="laberintos/Laberinto_cuadrado" instance=ExtResource("4_44eu1")]
+transform = Transform3D(2.151246, 0, 0, 0, 1, 0, 0, 0, 2.2035637, 120.06126, 0.7384758, -9.891464)
+nombre = "E"
+
+[node name="Area3D7" parent="laberintos/Laberinto_cuadrado" instance=ExtResource("4_44eu1")]
+transform = Transform3D(2.151246, 0, 0, 0, 1, 0, 0, 0, 2.2035637, 108.52679, 0.7384758, 7.890869)
+nombre = "F"
+
+[node name="Area3D8" parent="laberintos/Laberinto_cuadrado" instance=ExtResource("4_44eu1")]
+transform = Transform3D(2.151246, 0, 0, 0, 1, 0, 0, 0, 2.2035637, 113.035866, 0.7384758, 25.660286)
+nombre = "G"
+
+[node name="Area3D9" parent="laberintos/Laberinto_cuadrado" instance=ExtResource("4_44eu1")]
+transform = Transform3D(2.151246, 0, 0, 0, 1, 0, 0, 0, 2.2035637, 119.4851, 0.7384758, 7.9936676)
+nombre = "H"
+
+[node name="Suelo" parent="laberintos" instance=ExtResource("4")]
+transform = Transform3D(0.33020073, 4.4629903e-10, 0.0023630376, -1.4736866e-10, 1, -9.92503e-13, -0.0022937462, -1.8349497e-13, 0.34017575, 78.683784, 0.2849579, 62.709557)
+
+[node name="personaje" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.102234, 1, 39.01474)
+
+[node name="Camera3D" type="Camera3D" parent="personaje"]
+transform = Transform3D(0.9998406, 7.804133e-10, -0.01785377, 0.01785377, -4.3704432e-08, 0.9998406, 0, -1, -4.37114e-08, 65.7789, 11.999043, 8.358986)
+script = ExtResource("6")
+
+[node name="luz_personaje" type="SpotLight3D" parent="personaje/Camera3D" groups=["luz_personaje"]]
+transform = Transform3D(1, 0, 0, 0, 1, -1.06581e-14, 0, 1.06581e-14, 1, 0, 0, -6.61171)
+light_energy = 0.0
+shadow_enabled = true
+spot_range = 13.1203
+spot_angle = 59.599
+
+[node name="esfera" parent="personaje" instance=ExtResource("5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 97.96754, 0.7389431, 31.305199)
+
+[node name="llave_y_candado" type="Node3D" parent="."]
+
+[node name="llave" parent="llave_y_candado" instance=ExtResource("7")]
+transform = Transform3D(-0.639167, 0, 0.08822178, 0, 1, 0, -0.09591524, 0, -0.5878988, 74.696846, 0.691, 82.91113)
+
+[node name="Area_candado" type="Area3D" parent="llave_y_candado" groups=["Area_candado"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 80.1829, 2.20931, 20.3049)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="llave_y_candado/Area_candado"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.366867, 0, 57.157352)
+shape = SubResource("3")
+
+[node name="posicion_inicio" type="Node3D" parent="llave_y_candado"]
+
+[node name="candado" parent="." instance=ExtResource("8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 86.24532, 2.20931, 77.46225)
+
+[node name="Timer_espera" type="Timer" parent="."]
+wait_time = 120.0
+one_shot = true
+
+[node name="Timer_cuanto_falto" type="Timer" parent="."]
+
+[node name="AnimationPlayerPrincipal" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_oxw6p")
+}
+
+[node name="animacion_mundo" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_dwu0c")
+}
+
+[node name="area_winner" type="Area3D" parent="."]
+transform = Transform3D(0.24000001, 0, 0, 0, 1, 0, 0, 0, 0.041999996, 140.788, 0, 45)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="area_winner"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0887451, 0, 75.85651)
+shape = SubResource("7")
+
+[node name="Musica_and_sfx" type="Node" parent="."]
+
+[node name="musica_normal" type="AudioStreamPlayer" parent="Musica_and_sfx" groups=["musica_normal"]]
+stream = ExtResource("9")
+autoplay = true
+
+[node name="musica_rapida" type="AudioStreamPlayer" parent="Musica_and_sfx" groups=["musica_rapida"]]
+stream = ExtResource("10")
+
+[node name="sfx_llave" type="AudioStreamPlayer" parent="Musica_and_sfx" groups=["sfx_llave"]]
+stream = ExtResource("11")
+
+[node name="sfx_puerta_cerrada" type="AudioStreamPlayer" parent="Musica_and_sfx" groups=["sfx_puerta_cerrada"]]
+stream = ExtResource("12")
+
+[node name="sfx_puerta_abierta" type="AudioStreamPlayer" parent="Musica_and_sfx" groups=["sfx_puerta_abierta"]]
+stream = ExtResource("13")
+
+[node name="sfx_puerta_abierta_2" type="AudioStreamPlayer" parent="Musica_and_sfx"]
+stream = ExtResource("11")
+
+[node name="muerte_sonido" type="AudioStreamPlayer" parent="Musica_and_sfx"]
+stream = ExtResource("14")
+
+[node name="lose_sonido" type="AudioStreamPlayer" parent="Musica_and_sfx"]
+stream = ExtResource("15")
+
+[node name="conteo_sonido" type="AudioStreamPlayer" parent="Musica_and_sfx"]
+stream = ExtResource("16")
+
+[node name="winner_sonido" type="AudioStreamPlayer" parent="Musica_and_sfx"]
+stream = ExtResource("17")
+
+[node name="Interface_UI" type="Node" parent="."]
+
+[node name="tiempo_espera" type="Label" parent="Interface_UI"]
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.34600002
+anchor_right = 0.5
+anchor_bottom = 0.34600002
+offset_left = -883.0
+offset_top = -315.208
+offset_right = -579.0
+offset_bottom = -86.20801
+grow_horizontal = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("8")
+theme_override_font_sizes/font_size = 30
+text = "Tiempo de espera: 120"
+
+[node name="colorfondoMuerte" type="ColorRect" parent="Interface_UI"]
+visible = false
+offset_right = 1024.0
+offset_bottom = 600.0
+color = Color(0.14902, 0.14902, 0.14902, 0.611765)
+
+[node name="Game over" type="Label" parent="Interface_UI"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -455.0
+offset_top = -84.0
+offset_right = 684.0
+offset_bottom = 556.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("9")
+theme_override_font_sizes/font_size = 56
+text = "Game over
+"
+
+[node name="Label" type="Label" parent="Interface_UI/Game over"]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 137.0
+offset_right = 211.0
+offset_bottom = 147.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("10")
+text = "Presione Click o la pantalla para reiniciar"
+
+[node name="Winner_texto" type="Label" parent="Interface_UI"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -301.5
+offset_top = -94.5
+offset_right = 301.5
+offset_bottom = 94.5
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("11")
+text = "Winner"
+
+[node name="info winner" type="Label" parent="Interface_UI/Winner_texto"]
+layout_mode = 0
+offset_left = -89.5
+offset_top = 154.5
+offset_right = 779.5
+offset_bottom = 221.5
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("12")
+text = "Terminaste el juego muchas gracias por probarlo"
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+offset_left = 11.0
+offset_top = 641.0
+offset_right = 211.0
+offset_bottom = 841.0
+rotation = -1.5687953
+size_flags_horizontal = 0
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(200, 200)
+render_target_update_mode = 4
+
+[node name="Camera3D" type="Camera3D" parent="SubViewportContainer/SubViewport"]
+transform = Transform3D(-0.00031133564, -0.9998156, -0.019202972, -0.024477582, -0.0191896, 0.9995162, -0.9997003, 0.00078122737, -0.024467098, 184.98312, 532.1014, 68.92857)
+cull_mask = 3
+fov = 5.6249967
+
+[node name="ImageRemovebgPreview" type="Sprite2D" parent="SubViewportContainer"]
+modulate = Color(1, 1, 1, 0.59607846)
+position = Vector2(183.46439, 2.103807)
+rotation = 1.5687953
+scale = Vector2(0.41255775, 0.40748075)
+texture = ExtResource("20_j8hxj")
+offset = Vector2(200, 200)
+
+[node name="caja" type="Node3D" parent="."]
+transform = Transform3D(0.044071663, 0, 0, 0, 1, 0, 0, 0, 0.11892473, 68.12615, 2.3580155, 71.21865)
+
+[node name="col" type="StaticBody3D" parent="caja"]
+physics_material_override = SubResource("PhysicsMaterial_j8hxj")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="caja/col"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 125.903, 0, 0)
+shape = SubResource("BoxShape3D_j8hxj")
+
+[node name="CollisionShape2" type="CollisionShape3D" parent="caja/col"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -126.117, 0, 0)
+shape = SubResource("BoxShape3D_j8hxj")
+
+[node name="CollisionShape3" type="CollisionShape3D" parent="caja/col"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 74.9133)
+shape = SubResource("BoxShape3D_oxw6p")
+
+[node name="CollisionShape4" type="CollisionShape3D" parent="caja/col"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -74.9149)
+shape = SubResource("BoxShape3D_oxw6p")
+
+[connection signal="body_entered" from="llave_y_candado/llave" to="." method="_on_llave_body_entered"]
+[connection signal="body_entered" from="llave_y_candado/Area_candado" to="." method="_on_Area_candado_body_entered"]
+[connection signal="timeout" from="Timer_espera" to="." method="_on_Timer_espera_timeout"]
+[connection signal="timeout" from="Timer_cuanto_falto" to="." method="_on_Timer_cuanto_falto_timeout"]
+[connection signal="body_entered" from="area_winner" to="." method="_on_area_winner_body_entered"]

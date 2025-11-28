@@ -1,0 +1,96 @@
+[gd_scene load_steps=11 format=3 uid="uid://cb5xskxbu7qva"]
+
+[ext_resource type="Script" uid="uid://cpff3l7lfs5do" path="res://scripts/google.gd" id="1_1naft"]
+[ext_resource type="Texture2D" uid="uid://bq7rdag2831c6" path="res://Images/google.png" id="1_lcopf"]
+[ext_resource type="Script" uid="uid://b4st5fedrxwx1" path="res://scripts/playerMinigame.gd" id="2_lopoi"]
+[ext_resource type="Texture2D" uid="uid://biuwbwsb5jo4c" path="res://Images/ChatGPT Image Oct 9, 2025, 06_41_31 PM.png" id="3_1naft"]
+[ext_resource type="Texture2D" uid="uid://wgiaxo4cipuk" path="res://Images/ChatGPT Image Oct 9, 2025, 06_52_25 PM.png" id="5_evek5"]
+[ext_resource type="FontFile" uid="uid://dlgaaa84a0faq" path="res://fonts/8bitOperatorPlus8-Regular.ttf" id="6_8pp1u"]
+[ext_resource type="Script" uid="uid://bu01jh24enugv" path="res://scripts/textGoogle.gd" id="7_qyith"]
+[ext_resource type="FontFile" uid="uid://cf54iwng2iudn" path="res://fonts/8bitOperatorPlus-Bold.ttf" id="8_8pp1u"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_evek5"]
+bg_color = Color(0.936265, 0.936265, 0.936265, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1naft"]
+size = Vector2(1130, 91.75)
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_1naft")
+
+[node name="Panel" type="Panel" parent="."]
+offset_right = 1151.0
+offset_bottom = 648.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_evek5")
+
+[node name="piso" type="Area2D" parent="."]
+position = Vector2(-7.62939e-06, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="piso"]
+position = Vector2(567, 672.875)
+shape = SubResource("RectangleShape2D_1naft")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+script = ExtResource("2_lopoi")
+
+[node name="Knight" type="Sprite2D" parent="CharacterBody2D"]
+position = Vector2(544, 610)
+scale = Vector2(0.245361, 0.244751)
+texture = ExtResource("3_1naft")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Google" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(63, 56)
+scale = Vector2(0.167614, 0.150568)
+texture = ExtResource("1_lcopf")
+
+[node name="text" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(557, 164)
+scale = Vector2(1.30273, 0.335937)
+texture = ExtResource("5_evek5")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer"]
+offset_left = 86.0
+offset_top = 58.0
+offset_right = 1031.0
+offset_bottom = 215.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("6_8pp1u")
+theme_override_font_sizes/normal_font_size = 50
+bbcode_enabled = true
+text = "
+"
+script = ExtResource("7_qyith")
+
+[node name="Button" type="Button" parent="CanvasLayer"]
+offset_left = 843.0
+offset_top = 164.0
+offset_right = 905.0
+offset_bottom = 203.0
+theme_override_fonts/font = ExtResource("6_8pp1u")
+text = "Listo!"
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+offset_left = 136.0
+offset_top = 33.0
+offset_right = 239.0
+offset_bottom = 79.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("8_8pp1u")
+theme_override_font_sizes/font_size = 20
+
+[node name="Button2" type="Button" parent="CanvasLayer"]
+offset_left = 1085.0
+offset_top = 10.0
+offset_right = 1142.0
+offset_bottom = 41.0
+text = "Volver
+"
+
+[connection signal="area_entered" from="piso" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_entered" from="piso" to="." method="_on_piso_area_entered"]
+[connection signal="area_shape_entered" from="piso" to="." method="_on_area_2d_area_shape_entered"]
+[connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Button" to="CanvasLayer/RichTextLabel" method="_on_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Button2" to="." method="_on_button_2_pressed"]

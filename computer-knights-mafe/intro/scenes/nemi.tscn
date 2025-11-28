@@ -1,0 +1,46 @@
+[gd_scene load_steps=7 format=3 uid="uid://cy5ljjr7flfgx"]
+
+[ext_resource type="Texture2D" uid="uid://co240hnul56nu" path="res://intro/assets/NemiV3.png" id="1_7ojw0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tejwt"]
+atlas = ExtResource("1_7ojw0")
+region = Rect2(0, 0, 951, 1118)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hcfow"]
+atlas = ExtResource("1_7ojw0")
+region = Rect2(951, 0, 951, 1118)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kgp7q"]
+atlas = ExtResource("1_7ojw0")
+region = Rect2(2853, 0, 951, 1118)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gxbvf"]
+atlas = ExtResource("1_7ojw0")
+region = Rect2(1902, 0, 951, 1118)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_r180b"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tejwt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hcfow")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kgp7q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gxbvf")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Nemi" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_r180b")
+autoplay = "default"
+frame_progress = 0.65595776

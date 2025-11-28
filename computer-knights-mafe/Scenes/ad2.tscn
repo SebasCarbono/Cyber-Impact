@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://sc6roxunxj1k"]
+
+[ext_resource type="Script" uid="uid://ded75rthlb27f" path="res://scripts/ad_2.gd" id="1_e0y3f"]
+[ext_resource type="Texture2D" uid="uid://dlkofsqapb0am" path="res://Images/ad2.png" id="2_e0y3f"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0a7d8"]
+size = Vector2(323, 205)
+
+[node name="ad1" type="Node2D"]
+script = ExtResource("1_e0y3f")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(173.75, -118)
+scale = Vector2(0.31543, 0.302734)
+texture = ExtResource("2_e0y3f")
+
+[node name="ads" type="Area2D" parent="." groups=["ads"]]
+
+[node name="ad2" type="CollisionShape2D" parent="ads"]
+position = Vector2(177.5, -116.5)
+shape = SubResource("RectangleShape2D_0a7d8")
+
+[connection signal="area_entered" from="ads" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_entered" from="ads" to="." method="_on_ads_area_entered"]

@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cns620oxfb5wx"]
+
+[ext_resource type="PackedScene" uid="uid://kkwi8vs7r685" path="res://escenas_importadas/texto_inicio.glb" id="1"]
+
+[node name="texto_inicio" instance=ExtResource("1")]
+
+[node name="Text" parent="." index="0"]
+transform = Transform3D(0.7423268, 0.67003804, 0, 0, 0, -1, -0.67003804, 0.7423268, 0, 0, 0, 0)

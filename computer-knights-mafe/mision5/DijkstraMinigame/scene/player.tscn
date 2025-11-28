@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://cfb6mt2b4egnu"]
+
+[ext_resource type="Script" uid="uid://kqt88u65wffu" path="res://mision5/DijkstraMinigame/Script/player.gd" id="1_onrkg"]
+[ext_resource type="Texture2D" uid="uid://vfgyhr1wufbn" path="res://mision5/images/ChatGPT Image Nov 14, 2025, 10_10_27 AM.png" id="2_1susn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_onrkg"]
+size = Vector2(56.253773, 51.000565)
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_onrkg")
+
+[node name="Plane" type="Sprite2D" parent="."]
+position = Vector2(1.9073486e-06, 0)
+rotation = 0.00040185452
+scale = Vector2(0.094524354, 0.11349011)
+texture = ExtResource("2_1susn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(7.873652, -0.50290924)
+rotation = -0.00035972893
+shape = SubResource("RectangleShape2D_onrkg")

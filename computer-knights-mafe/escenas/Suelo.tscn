@@ -1,0 +1,56 @@
+[gd_scene load_steps=7 format=3 uid="uid://bvw3v740s48re"]
+
+[ext_resource type="Shader" uid="uid://di2vuurwtfese" path="res://escenas/laberinto_circular.gdshader" id="1_4p218"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rdtkv"]
+render_priority = 0
+shader = ExtResource("1_4p218")
+shader_parameter/base_color = Color(0, 0.02, 0.04, 1)
+shader_parameter/data_color = Color(0, 0, 0, 1)
+shader_parameter/corruption_color = Color(0.9, 0.1, 0.3, 1)
+shader_parameter/corruption_intensity = 0.4
+shader_parameter/line_density = 60.0
+shader_parameter/flow_speed = 1.5
+shader_parameter/damage_speed = 0.3
+
+[sub_resource type="BoxMesh" id="BoxMesh_4p218"]
+size = Vector3(300, 1, 200)
+
+[sub_resource type="BoxShape3D" id="3"]
+size = Vector3(242.126, 2, 147.5236)
+
+[sub_resource type="BoxShape3D" id="4"]
+size = Vector3(10.1516, 4.4473, 153.4966)
+
+[sub_resource type="BoxShape3D" id="5"]
+size = Vector3(265.136, 3.8264, 7.84518)
+
+[node name="Suelo" type="Node3D"]
+
+[node name="suelo" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.9996101, -1.6989543e-07, -0.027921537, -1.7484555e-07, 1, 1.7484555e-07, 0.027921537, 1.7965934e-07, -0.9996101, 60.0184, 9.53674e-07, -0.0269928)
+material_override = SubResource("ShaderMaterial_rdtkv")
+cast_shadow = 0
+mesh = SubResource("BoxMesh_4p218")
+
+[node name="col" type="StaticBody3D" parent="suelo"]
+
+[node name="shape2" type="CollisionShape3D" parent="suelo/col"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.04392, 0)
+shape = SubResource("3")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="suelo/col"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 125.903, 0, 0)
+shape = SubResource("4")
+
+[node name="CollisionShape2" type="CollisionShape3D" parent="suelo/col"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -126.117, 0, 0)
+shape = SubResource("4")
+
+[node name="CollisionShape3" type="CollisionShape3D" parent="suelo/col"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 74.9133)
+shape = SubResource("5")
+
+[node name="CollisionShape4" type="CollisionShape3D" parent="suelo/col"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -74.9149)
+shape = SubResource("5")

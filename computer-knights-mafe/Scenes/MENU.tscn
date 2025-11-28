@@ -1,0 +1,60 @@
+[gd_scene load_steps=7 format=3 uid="uid://cewkb2aat46p0"]
+
+[ext_resource type="Texture2D" uid="uid://b5pu7c0im33fk" path="res://Images/file_000000006250620ea8595849e9666fb3.png" id="1_vfnt7"]
+[ext_resource type="Script" uid="uid://pd5glr3t2h8t" path="res://Scenes/menu.gd" id="1_vlheg"]
+[ext_resource type="VideoStream" uid="uid://r4ao6g6w7vd3" path="res://Videos/computer.ogv" id="3_jmjkl"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jmjkl"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2iym8"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d4a25"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[node name="Menu" type="Node2D"]
+script = ExtResource("1_vlheg")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1151.0
+offset_bottom = 646.0
+metadata/_edit_lock_ = true
+
+[node name="File000000006250620Ea8595849e9666Fb3" type="Sprite2D" parent="."]
+position = Vector2(575.00006, 323.00003)
+scale = Vector2(0.75097656, 0.7790528)
+texture = ExtResource("1_vfnt7")
+
+[node name="Button" type="Button" parent="."]
+offset_left = 308.0
+offset_top = 195.0
+offset_right = 841.0
+offset_bottom = 312.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_jmjkl")
+
+[node name="Button2" type="Button" parent="."]
+offset_left = 307.0
+offset_top = 321.0
+offset_right = 840.0
+offset_bottom = 438.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_2iym8")
+
+[node name="Button3" type="Button" parent="."]
+offset_left = 306.0
+offset_top = 442.0
+offset_right = 839.0
+offset_bottom = 551.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_d4a25")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+process_mode = 3
+visible = false
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="CanvasLayer"]
+process_mode = 3
+visible = false
+offset_right = 2765.0
+offset_bottom = 1653.0
+stream = ExtResource("3_jmjkl")
+metadata/_edit_use_anchors_ = true
